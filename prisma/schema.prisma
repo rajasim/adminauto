@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  // Added pgbouncer=true to the URL for Neon compatibility
+  url      = "postgresql://neondb_owner:npg_vy9kl6fSTtwz@ep-hidden-dawn-aqfac95z-pooler.c-8.us-east-1.aws.neon.tech/neondb?sslmode=require&pgbouncer=true"
+}
+
+model Enrollment {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String
+  education String
+  program   String
+  amount    Float
+  status    String   @default("Paid")
+  createdAt DateTime @default(now())
+}
