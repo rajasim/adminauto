@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import AdminLogin from './AdminLogin';
 import Dashboard from './Dashboard'; // We will create this next
+// @ts-ignore
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
