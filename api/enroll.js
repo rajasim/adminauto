@@ -1,6 +1,19 @@
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
+export default async function handler(req, res) {
+  // Allow your Enrollment site to talk to this API
+  res.setHeader('Access-Control-Allow-Origin', '*'); 
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle the "preflight" request from the browser
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  // ... your existing Prisma logic below
+}
 
 export default async function handler(req, res) {
   // Only allow POST requests
